@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} Lista de notas {% endblock %}
+
+{% block body %}
+  <center><h1>App Notas</h1></center>
+  <button onclick="window.location.href='registrar/'" class="btn btn-primary">Nueva nota</button>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+      <div class="table-responsive py-2">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th style="text-align: center;">Nota</th>
+              <th style="text-align: center;">Fecha</th>
+              <th style="text-align: center;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for c in notas %}
+              <tr>
+                <td>{{ c.nota }}</td>
+                <td>{{ c.fecha }}</td>
+                <td>
+                  <a href="ver/{{ c.codigo }}" class="btn btn-success">Ver</a>
+                  <a href="edicion/{{ c.codigo }}" class="btn btn-warning">Editar</a>
+                  <a href="borrar/{{ c.codigo }}" class="btn btn-danger">Borrar</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}

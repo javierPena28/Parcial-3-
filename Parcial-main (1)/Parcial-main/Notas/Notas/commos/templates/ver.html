@@ -1,0 +1,36 @@
+{% extends "./base.html" %}
+
+{% block tittle %} edicion {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div calss="col-md-4 offset-md-4">
+        <h2>Notas</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editarNota/" method="POST">{% csrf_token%}
+                    <div class="form-group">
+                        <input type="text" id="codigo" value="{{nota.codigo}}" name="codigo" class="form-control " 
+                        placeholder="codigo" minlength="1" maxlength="4" readonly required >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="nota" name="nota" value="{{nota.nota}}" class="form-control " 
+                        placeholder="nota" minlength="1" maxlength="1" readonly required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="fehca" name="fecha" value="{{nota.fecha}}" class="form-control " 
+                        readonly required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">atras</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+{%endblock%}
